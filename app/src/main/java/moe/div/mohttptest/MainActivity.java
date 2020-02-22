@@ -22,5 +22,11 @@ public class MainActivity extends AppCompatActivity {
             .subscribe(s -> {
                 Log.i("mo--", s);
             });
+        Disposable subscribe2 = MoHttp.getInstance().post("http://baidu.com", null)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(s -> {
+                Log.i("mo--", s);
+            });
     }
 }
